@@ -27,11 +27,28 @@ const Desk = () => {
 };
 
 const DeskCanvas = () => {
+  const [mousePos, setMousePos] = useState({});
+
+  useEffect(() => {
+    const handleMouseMove = (event) => {
+      setMousePos({ x: event.clientX, y: event.clientY });
+    };
+
+    window.addEventListener('mousemove', handleMouseMove);
+
+    return () => {
+      window.removeEventListener('mousemove', handleMouseMove);
+    };
+  }, [mousePos]);
+
   return (
     <Canvas
       frameloop='demand'
       shadows
-      camera={{ position: [0, 0, 0.1], fov: 25 }}
+      camera={{
+        position: [0, 0, 0.1],
+        fov: 25,
+      }}
       gl={{ preseveDrawingBuffer: true }}
     >
       <Suspense fallback={<CanvasLoader />}>
@@ -39,8 +56,8 @@ const DeskCanvas = () => {
           enableZoom={false}
           maxPolarAngle={Math.PI / 2}
           minPolarAngle={Math.PI / 2}
-          minAzimuthAngle={-Math.PI / 45}
-          maxAzimuthAngle={Math.PI / 45}
+          minAzimuthAngle={-Math.PI / 20}
+          maxAzimuthAngle={Math.PI / 30}
         />
         <Desk />
       </Suspense>
