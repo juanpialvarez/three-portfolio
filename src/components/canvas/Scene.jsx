@@ -12,7 +12,7 @@ import { useGLTF, useAnimations } from '@react-three/drei';
 
 const Office = (props) => {
   const group = useRef();
-  const { nodes, materials, animations } = useGLTF('/Main_Desk/scene.gltf');
+  const { nodes, materials, animations } = useGLTF('Main_Desk/scene.gltf');
   const { actions, names } = useAnimations(animations, group);
 
   useEffect(() => {
