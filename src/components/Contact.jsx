@@ -8,7 +8,7 @@ import { styles } from '../styles';
 const Contact = (props) => {
   const { handleBack } = props;
   return (
-    <Tilt className='max-sm:w-full max-sm:h-[300px] h-[400px] w-[500px] '>
+    <Tilt className='max-sm:w-full max-sm:h-[350px] h-[400px] w-[500px] '>
       <motion.div
         initial={{ opacity: 0, scale: 0.5 }}
         animate={{ opacity: 1, scale: 1 }}
@@ -56,7 +56,7 @@ const Contact = (props) => {
 
           <a
             className='bg-blue-500 hover:bg-blue-700 text-white 
-            font-bold py-2 px-4 rounded-full mb-10 mt-10'
+            font-bold py-2 px-4 rounded-full mb-10 mt-5'
             href='mailto:juanpabloalvarezv@gmail.com'
           >
             Contact Me

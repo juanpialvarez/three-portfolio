@@ -11,16 +11,17 @@ import ButtonsThreeD from './ButtonsThreeD';
 import View from './View';
 
 const Desk = () => {
-  const scene = useRef(null);
-  const office = useGLTF('./Main_Desk/scene.gltf');
-  const { actions, names } = useAnimations(office.animations, scene);
+  const group = useRef(null);
+
+  const office = useGLTF('Main_Desk/scene.gltf');
+  const { actions, names } = useAnimations(office.animations, group);
 
   useEffect(() => {
     actions[names[0]].reset().fadeIn(0.5).play();
   }, [actions, names]);
 
   return (
-    <group ref={scene}>
+    <group ref={group}>
       <hemisphereLight intensity={0.15} groundColor={'black'} />
       <ambientLight />
       <pointLight position={[10, 10, 10]} />
