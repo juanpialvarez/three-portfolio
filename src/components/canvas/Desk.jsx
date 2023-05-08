@@ -110,14 +110,14 @@ const DeskCanvas = () => {
           enableZoom={false}
           enablePan={false}
           enableDamping={true}
-          rotateSpeed={0.05}
+          rotateSpeed={0.1}
           maxPolarAngle={Math.PI / 2}
           minPolarAngle={Math.PI / 2}
           minAzimuthAngle={
-            isMobile ? -Math.PI / 10 : isSmall ? -Math.PI / 15 : -Math.PI / 30
+            isMobile ? -Math.PI / 12.5 : isSmall ? -Math.PI / 18 : -Math.PI / 35
           }
           maxAzimuthAngle={
-            isMobile ? Math.PI / 10 : isSmall ? Math.PI / 15 : Math.PI / 30
+            isMobile ? Math.PI / 14 : isSmall ? Math.PI / 20.5 : Math.PI / 40
           }
         />
         <Desk />

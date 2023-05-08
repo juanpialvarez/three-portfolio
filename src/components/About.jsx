@@ -1,5 +1,4 @@
 import React from 'react';
-import { Tilt } from 'react-tilt';
 import { motion } from 'framer-motion';
 
 import { fadeIn, textVariant } from '../utils/motion';
@@ -9,7 +8,7 @@ import { styles } from '../styles';
 const About = (props) => {
   const { handleBack } = props;
   return (
-    <Tilt className='max-sm:w-full max-sm:h-[500px] h-[550px] w-[400px]'>
+    <div className='max-sm:w-full max-sm:h-screen h-[500px] w-[400px]'>
       <motion.div
         initial={{ opacity: 0, scale: 0.5 }}
         animate={{ opacity: 1, scale: 1 }}
@@ -18,7 +17,7 @@ const About = (props) => {
       >
         <button
           className='bg-blue-500 hover:bg-blue-700 text-white 
-            font-bold py-2 px-4 rounded-full relative z-1 top-2 left-2'
+            font-bold py-2 px-4 rounded-full absolute z-1 top-2 left-2 max-sm:opacity-60'
           onClick={(event) => handleBack()}
         >
           Back
@@ -55,7 +54,7 @@ const About = (props) => {
           </motion.p>
         </div>
       </motion.div>
-    </Tilt>
+    </div>
   );
 };
 
