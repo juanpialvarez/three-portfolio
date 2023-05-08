@@ -1,24 +1,37 @@
-import React, { Suspense, useEffect, useState } from 'react';
+import React, { Suspense, useEffect, useRef, useState } from 'react';
 import { Canvas } from '@react-three/fiber';
-import { OrbitControls, Preload } from '@react-three/drei';
+import {
+  OrbitControls,
+  Preload,
+  useAnimations,
+  useGLTF,
+} from '@react-three/drei';
 import CanvasLoader from '../Loader';
-import Office from './Scene';
 import ButtonsThreeD from './ButtonsThreeD';
 import View from './View';
 
 const Desk = () => {
+  const scene = useRef(null);
+  const office = useGLTF('./Main_Desk/scene.gltf');
+  const { actions, names } = useAnimations(office.animations, scene);
+
+  useEffect(() => {
+    actions[names[0]].reset().fadeIn(0.5).play();
+  }, [actions, names]);
+
   return (
-    <>
+    <group ref={scene}>
       <hemisphereLight intensity={0.15} groundColor={'black'} />
       <ambientLight />
       <pointLight position={[10, 10, 10]} />
 
-      <Office
+      <primitive
+        object={office.scene}
         scale={1}
         position={[0.6, -2, -15.5]}
         rotation={[-0.01, -0.2, 0]}
       />
-    </>
+    </group>
   );
 };
 

@@ -9,19 +9,19 @@ const Contact = (props) => {
   const { handleBack } = props;
   return (
     <Tilt className='max-sm:w-full max-sm:h-[300px] h-[400px] w-[500px] '>
-      <button
-        className='bg-blue-500 hover:bg-blue-700 text-white 
-            font-bold py-2 px-4 rounded-full relative z-1 top-12 left-2'
-        onClick={(event) => handleBack()}
-      >
-        Back
-      </button>
       <motion.div
         initial={{ opacity: 0, scale: 0.5 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.5 }}
         className='blue-gradient w-full h-full p-[1px] rounded-[20px] shadow-card'
       >
+        <button
+          className='bg-blue-500 hover:bg-blue-700 text-white 
+            font-bold py-2 px-4 rounded-full relative z-1 top-2 left-2'
+          onClick={(event) => handleBack()}
+        >
+          Back
+        </button>
         <div
           options={{
             max: 45,
