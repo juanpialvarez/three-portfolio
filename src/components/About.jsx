@@ -6,15 +6,23 @@ import { fadeIn, textVariant } from '../utils/motion';
 import picture from '../assets/images/profile-photo.jpg';
 import { styles } from '../styles';
 
-const About = () => {
+const About = (props) => {
+  const { handleBack } = props;
   return (
-    <Tilt className='xs:w-[250px] h-[600px] w-[500px] flex'>
+    <Tilt className='max-sm:w-full max-sm:h-[500px] h-[550px] w-[400px]'>
       <motion.div
         initial={{ opacity: 0, scale: 0.5 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.5 }}
-        className='blue-gradient w-full h-full p-[1px] rounded-[20px] shadow-card'
+        className='blue-gradient w-full h-full p-[1px] rounded-[20px] shadow-card overflow-scroll'
       >
+        <button
+          className='bg-blue-500 hover:bg-blue-700 text-white 
+            font-bold py-2 px-4 rounded-full relative z-1 top-2 left-2'
+          onClick={(event) => handleBack()}
+        >
+          Back
+        </button>
         <div
           options={{
             max: 45,

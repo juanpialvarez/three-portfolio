@@ -6,16 +6,16 @@ import Projects from '../Projects';
 
 const View = (props) => {
   const refDiv = useRef();
-  const { view, useOutsideAlerter } = props;
+  const { view, useOutsideAlerter, handleBack } = props;
   useOutsideAlerter(refDiv);
   return (
     <group>
       <mesh {...props}>
         <Html fullscreen as='div' className='flex justify-center items-center'>
           <div ref={refDiv}>
-            {view === 'About' && <About />}
-            {view === 'Contact' && <Contact />}
-            {view === 'Projects' && <Projects />}
+            {view === 'About' && <About handleBack={handleBack} />}
+            {view === 'Contact' && <Contact handleBack={handleBack} />}
+            {view === 'Projects' && <Projects handleBack={handleBack} />}
           </div>
         </Html>
       </mesh>

@@ -5,9 +5,17 @@ import { motion } from 'framer-motion';
 import { fadeIn, textVariant } from '../utils/motion';
 import { styles } from '../styles';
 
-const Contact = () => {
+const Contact = (props) => {
+  const { handleBack } = props;
   return (
-    <Tilt className='xs:w-[250px] h-[400px] w-[500px] flex '>
+    <Tilt className='max-sm:w-full max-sm:h-[300px] h-[400px] w-[500px] '>
+      <button
+        className='bg-blue-500 hover:bg-blue-700 text-white 
+            font-bold py-2 px-4 rounded-full relative z-1 top-12 left-2'
+        onClick={(event) => handleBack()}
+      >
+        Back
+      </button>
       <motion.div
         initial={{ opacity: 0, scale: 0.5 }}
         animate={{ opacity: 1, scale: 1 }}
@@ -45,6 +53,7 @@ const Contact = () => {
             <br />
             <br />
           </motion.p>
+
           <a
             className='bg-blue-500 hover:bg-blue-700 text-white 
             font-bold py-2 px-4 rounded-full mb-10 mt-10'

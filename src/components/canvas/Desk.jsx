@@ -77,6 +77,10 @@ const DeskCanvas = () => {
     }
   };
 
+  const handleBack = () => {
+    setView('');
+  };
+
   return (
     <Canvas
       frameloop='demand'
@@ -134,7 +138,11 @@ const DeskCanvas = () => {
           handleView={handleView}
           view='Projects'
         />
-        <View view={view} useOutsideAlerter={useOutsideAlerter} />
+        <View
+          view={view}
+          useOutsideAlerter={useOutsideAlerter}
+          handleBack={handleBack}
+        />
       </Suspense>
       <Preload all />
     </Canvas>
