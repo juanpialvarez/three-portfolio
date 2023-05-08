@@ -3,7 +3,7 @@ import { Tilt } from 'react-tilt';
 import { motion } from 'framer-motion';
 
 import { fadeIn, textVariant } from '../utils/motion';
-import picture from '../assets/images/profile-photo.jpg';
+import picture from '../assets/images/logo-color.png';
 import { styles } from '../styles';
 
 const About = (props) => {
@@ -34,7 +34,7 @@ const About = (props) => {
         >
           <img
             src={picture}
-            alt='Me'
+            alt='Logo'
             className='h-[180px] rounded-[20px] mb-3'
           />
           <motion.div variants={textVariant()}>
