@@ -1,6 +1,7 @@
 import React, { Suspense, useEffect, useRef, useState } from 'react';
 import { Canvas } from '@react-three/fiber';
 import {
+  Float,
   OrbitControls,
   Preload,
   useAnimations,
@@ -9,6 +10,7 @@ import {
 import CanvasLoader from '../Loader';
 import ButtonsThreeD from './ButtonsThreeD';
 import View from './View';
+import ProjectView from '../ProjectView';
 
 const Desk = () => {
   const group = useRef(null);
@@ -40,12 +42,27 @@ const DeskCanvas = () => {
   const [isMobile, setIsMobile] = useState(false);
   const [isSmall, setIsSmall] = useState(false);
   const [view, setView] = useState('');
+  const [project, setProject] = useState(null);
 
   const useOutsideAlerter = (ref) => {
     useEffect(() => {
       function handleClickOutside(event) {
         if (ref.current && !ref.current.contains(event.target)) {
           setView('');
+        }
+      }
+      document.addEventListener('mousedown', handleClickOutside);
+      return () => {
+        document.removeEventListener('mousedown', handleClickOutside);
+      };
+    }, [ref]);
+  };
+
+  const useOutsideProjectCloser = (ref) => {
+    useEffect(() => {
+      function handleClickOutside(event) {
+        if (ref.current && !ref.current.contains(event.target)) {
+          setProject(null);
         }
       }
       document.addEventListener('mousedown', handleClickOutside);
@@ -95,72 +112,115 @@ const DeskCanvas = () => {
     setView('');
   };
 
+  const handleViewProject = (data) => {
+    setProject(data);
+  };
+
+  const handleCloseProject = () => {
+    setProject(null);
+  };
+
   return (
-    <Canvas
-      frameloop='always'
-      shadows
-      camera={{
-        position: [0, 0, 0.1],
-        fov: 25,
-      }}
-      gl={{ preseveDrawingBuffer: true }}
-    >
-      <Suspense fallback={<CanvasLoader />}>
-        <OrbitControls
-          enableZoom={false}
-          enablePan={false}
-          enableDamping={true}
-          rotateSpeed={0.1}
-          maxPolarAngle={Math.PI / 2}
-          minPolarAngle={Math.PI / 2}
-          minAzimuthAngle={
-            isMobile ? -Math.PI / 12.5 : isSmall ? -Math.PI / 18 : -Math.PI / 35
-          }
-          maxAzimuthAngle={
-            isMobile ? Math.PI / 14 : isSmall ? Math.PI / 20.5 : Math.PI / 40
-          }
-        />
+    <>
+      {project && (
+        <>
+          <div className='h-screen z-20 absolute left-1/2 -translate-x-1/2'>
+            <ProjectView
+              project={project}
+              handleCloseProject={handleCloseProject}
+              useOutsideProjectCloser={useOutsideProjectCloser}
+            />
+          </div>
+          <div className='h-screen w-screen bg-gray-500 opacity-50 z-10 absolute' />
+        </>
+      )}
+      <div className='h-screen z-0 '>
+        <Canvas
+          frameloop='always'
+          shadows
+          camera={{
+            position: [0, 0, 0.1],
+            fov: 25,
+          }}
+          gl={{ preseveDrawingBuffer: true }}
+        >
+          <Suspense fallback={<CanvasLoader />}>
+            {!project && (
+              <OrbitControls
+                enableZoom={false}
+                enablePan={false}
+                enableDamping={true}
+                rotateSpeed={0.1}
+                maxPolarAngle={Math.PI / 2}
+                minPolarAngle={Math.PI / 2}
+                minAzimuthAngle={
+                  isMobile
+                    ? -Math.PI / 12.5
+                    : isSmall
+                    ? -Math.PI / 18
+                    : -Math.PI / 35
+                }
+                maxAzimuthAngle={
+                  isMobile
+                    ? Math.PI / 14
+                    : isSmall
+                    ? Math.PI / 20.5
+                    : Math.PI / 40
+                }
+              />
+            )}
 
-        <Desk />
-        <ButtonsThreeD
-          position={[-1, 0.4, -4.8]}
-          textParams={{
-            position: [-1.08, 0.32, -4],
-            rotation: [0, 0.4, 0],
-            text: 'Contact',
-          }}
-          handleView={handleView}
-          view='Contact'
-        />
+            <Desk />
+            <Float speed={1} rotationIntensity={0.2} floatIntensity={0.5}>
+              <ButtonsThreeD
+                position={[-1, 0.4, -4.8]}
+                textParams={{
+                  position: [-1.08, 0.32, -4],
+                  rotation: [0, 0.4, 0],
+                  text: 'Contact',
+                }}
+                handleView={!project && handleView}
+                view='Contact'
+              />
+            </Float>
+            <Float speed={1} rotationIntensity={0.1} floatIntensity={0.5}>
+              <ButtonsThreeD
+                position={[0.2, 0.2, -7.8]}
+                textParams={{
+                  position: [-0.01, 0.15, -7],
+                  rotation: [0, 0, 0],
+                  text: 'About',
+                }}
+                handleView={!project && handleView}
+                view='About'
+              />
+            </Float>
+            <Float speed={1} rotationIntensity={0.1} floatIntensity={0.5}>
+              <ButtonsThreeD
+                position={[1.46, 0.6, -7.8]}
+                textParams={{
+                  position: [1.04, 0.5, -7],
+                  rotation: [0, -0.3, 0],
+                  text: 'Projects',
+                }}
+                handleView={!project && handleView}
+                view='Projects'
+              />
+            </Float>
 
-        <ButtonsThreeD
-          position={[0.2, 0.2, -8.8]}
-          textParams={{
-            position: [-0.01, 0.15, -8],
-            rotation: [0, 0, 0],
-            text: 'About',
-          }}
-          handleView={handleView}
-          view='About'
-        />
-        <ButtonsThreeD
-          position={[1.46, 0.6, -7.8]}
-          textParams={{
-            position: [1.04, 0.5, -7],
-            rotation: [0, -0.3, 0],
-            text: 'Projects',
-          }}
-          handleView={handleView}
-          view='Projects'
-        />
-        <View
-          view={view}
-          useOutsideAlerter={useOutsideAlerter}
-          handleBack={handleBack}
-        />
-      </Suspense>
-      <Preload all />
-    </Canvas>
+            {!project && (
+              <View
+                view={view}
+                useOutsideAlerter={useOutsideAlerter}
+                handleBack={handleBack}
+                handleViewProject={handleViewProject}
+              />
+            )}
+          </Suspense>
+          <Preload all />
+        </Canvas>
+      </div>
+    </>
   );
 };
 

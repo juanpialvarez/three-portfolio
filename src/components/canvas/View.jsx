@@ -6,7 +6,7 @@ import Projects from '../Projects';
 
 const View = (props) => {
   const refDiv = useRef();
-  const { view, useOutsideAlerter, handleBack } = props;
+  const { view, useOutsideAlerter, handleBack, handleViewProject } = props;
   useOutsideAlerter(refDiv);
   return (
     <group>
@@ -15,7 +15,12 @@ const View = (props) => {
           <div ref={refDiv}>
             {view === 'About' && <About handleBack={handleBack} />}
             {view === 'Contact' && <Contact handleBack={handleBack} />}
-            {view === 'Projects' && <Projects handleBack={handleBack} />}
+            {view === 'Projects' && (
+              <Projects
+                handleBack={handleBack}
+                handleViewProject={handleViewProject}
+              />
+            )}
           </div>
         </Html>
       </mesh>

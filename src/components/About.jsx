@@ -17,7 +17,7 @@ const About = (props) => {
       >
         <button
           className='bg-blue-500 hover:bg-blue-700 text-white 
-            font-bold py-2 px-4 rounded-full absolute z-1 top-2 left-2 max-sm:opacity-60'
+            font-bold py-2 px-4 rounded-full absolute top-2 left-2 max-sm:opacity-60'
           onClick={(event) => handleBack()}
         >
           Back
