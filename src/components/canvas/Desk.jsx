@@ -22,8 +22,8 @@ const Desk = () => {
 
   return (
     <group ref={group}>
-      <hemisphereLight intensity={0.15} groundColor={'black'} />
-      <ambientLight />
+      <hemisphereLight groundColor={'white'} />
+      <ambientLight intensity={0.1} />
       <pointLight position={[10, 10, 10]} />
 
       <primitive
@@ -97,7 +97,7 @@ const DeskCanvas = () => {
 
   return (
     <Canvas
-      frameloop='demand'
+      frameloop='always'
       shadows
       camera={{
         position: [0, 0, 0.1],
@@ -120,6 +120,7 @@ const DeskCanvas = () => {
             isMobile ? Math.PI / 14 : isSmall ? Math.PI / 20.5 : Math.PI / 40
           }
         />
+
         <Desk />
         <ButtonsThreeD
           position={[-1, 0.4, -4.8]}
