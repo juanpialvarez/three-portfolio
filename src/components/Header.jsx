@@ -9,7 +9,7 @@ const Header = () => {
         <div className='arrow2 arrow2-second' />
       </div>
       <h2
-        className={`${styles.sectionSubText} text-[#ff36cb] blink-text relative top-10`}
+        className={`${styles.sectionSubText} text-[#ff36cb] text-lg blink-text relative top-10`}
       >
         Swipe
       </h2>

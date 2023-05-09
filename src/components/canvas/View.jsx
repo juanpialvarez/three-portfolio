@@ -6,8 +6,10 @@ import Projects from '../Projects';
 
 const View = (props) => {
   const refDiv = useRef();
-  const { view, useOutsideAlerter, handleBack, handleViewProject } = props;
+  const { view, useRefView, useOutsideAlerter, handleBack, handleViewProject } =
+    props;
   useOutsideAlerter(refDiv);
+  useRefView(refDiv, view);
   return (
     <group>
       <mesh {...props}>

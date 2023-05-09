@@ -5,13 +5,13 @@ import {
   css,
   reactjs,
   redux,
-  tailwind,
+  // tailwind,
   nodejs,
   mongodb,
   git,
-  figma,
-  docker,
-  threejs,
+  // figma,
+  // docker,
+  // threejs,
   angular,
 } from '../assets';
 
@@ -23,7 +23,28 @@ export const projects = [
     github: 'https://github.com/juanpialvarez/MyFlix',
     website: 'https://myflix94.netlify.app/',
     screenshot: '',
-    techs: [javascript, html, git, mongodb, nodejs],
+    techs: [
+      {
+        icon: git,
+        name: 'Git',
+      },
+      {
+        icon: mongodb,
+        name: 'MongoDB',
+      },
+      {
+        icon: html,
+        name: 'HTML',
+      },
+      {
+        icon: nodejs,
+        name: 'Node',
+      },
+      {
+        icon: javascript,
+        name: 'Javascript',
+      },
+    ],
     other: ['Express.js', 'Kanban'],
   },
   {
@@ -33,7 +54,32 @@ export const projects = [
     github: 'https://github.com/juanpialvarez/MyFlix-client',
     website: 'https://myflix94.netlify.app/',
     screenshot: '',
-    techs: [reactjs, redux, css, html, javascript],
+    techs: [
+      {
+        icon: reactjs,
+        name: 'React',
+      },
+      {
+        icon: redux,
+        name: 'Redux',
+      },
+      {
+        icon: css,
+        name: 'CSS',
+      },
+      {
+        icon: git,
+        name: 'Git',
+      },
+      {
+        icon: html,
+        name: 'HTML',
+      },
+      {
+        icon: javascript,
+        name: 'Javascript',
+      },
+    ],
     other: ['Parcel'],
   },
   {
@@ -43,8 +89,33 @@ export const projects = [
     github: 'https://github.com/juanpialvarez/MyFlix-Angular',
     website: 'https://juanpialvarez.github.io/MyFlix-Angular/welcome',
     screenshot: '',
-    techs: [angular, redux, css, html, javascript],
-    other: [],
+    techs: [
+      {
+        icon: angular,
+        name: 'Angular',
+      },
+      {
+        icon: redux,
+        name: 'Redux',
+      },
+      {
+        icon: css,
+        name: 'CSS',
+      },
+      {
+        icon: html,
+        name: 'HTML',
+      },
+      {
+        icon: git,
+        name: 'Git',
+      },
+      {
+        icon: typescript,
+        name: 'Typescript',
+      },
+    ],
+    other: ['Typescript'],
   },
 
   {
@@ -53,7 +124,32 @@ export const projects = [
     github: 'https://github.com/juanpialvarez/Chat-App',
     website: 'https://www.dropbox.com/s/putpqj6acwjdh78/Task5_5.webm?dl=0',
     screenshot: '',
-    techs: [reactjs, redux, css, html, javascript],
+    techs: [
+      {
+        icon: reactjs,
+        name: 'React',
+      },
+      {
+        icon: redux,
+        name: 'Redux',
+      },
+      {
+        icon: css,
+        name: 'CSS',
+      },
+      {
+        icon: git,
+        name: 'Git',
+      },
+      {
+        icon: html,
+        name: 'HTML',
+      },
+      {
+        icon: javascript,
+        name: 'Javascript',
+      },
+    ],
     other: ['React Native'],
   },
   {
@@ -63,7 +159,32 @@ export const projects = [
     github: 'https://github.com/juanpialvarez/Meet-App',
     website: 'https://juanpialvarez.github.io/Meet-App/',
     screenshot: '',
-    techs: [reactjs, redux, css, html, javascript],
+    techs: [
+      {
+        icon: reactjs,
+        name: 'React',
+      },
+      {
+        icon: redux,
+        name: 'Redux',
+      },
+      {
+        icon: css,
+        name: 'CSS',
+      },
+      {
+        icon: html,
+        name: 'HTML',
+      },
+      {
+        icon: git,
+        name: 'Git',
+      },
+      {
+        icon: javascript,
+        name: 'Javascript',
+      },
+    ],
     other: ['Serverless', 'Oauth', 'Test Driven Development', 'Jest'],
   },
   {
@@ -73,62 +194,24 @@ export const projects = [
     github: 'https://github.com/juanpialvarez/pokedex',
     website: 'https://juanpialvarez.github.io/pokedex/',
     screenshot: '',
-    techs: [css, html, javascript],
+    techs: [
+      {
+        icon: git,
+        name: 'Git',
+      },
+      {
+        icon: css,
+        name: 'CSS',
+      },
+      {
+        icon: html,
+        name: 'HTML',
+      },
+      {
+        icon: javascript,
+        name: 'Javascript',
+      },
+    ],
     other: ['API', 'JQuery'],
-  },
-];
-
-export const technologies = [
-  {
-    name: 'HTML 5',
-    icon: html,
-  },
-  {
-    name: 'CSS 3',
-    icon: css,
-  },
-  {
-    name: 'JavaScript',
-    icon: javascript,
-  },
-  {
-    name: 'TypeScript',
-    icon: typescript,
-  },
-  {
-    name: 'React JS',
-    icon: reactjs,
-  },
-  {
-    name: 'Redux Toolkit',
-    icon: redux,
-  },
-  {
-    name: 'Tailwind CSS',
-    icon: tailwind,
-  },
-  {
-    name: 'Node JS',
-    icon: nodejs,
-  },
-  {
-    name: 'MongoDB',
-    icon: mongodb,
-  },
-  {
-    name: 'Three JS',
-    icon: threejs,
-  },
-  {
-    name: 'git',
-    icon: git,
-  },
-  {
-    name: 'figma',
-    icon: figma,
-  },
-  {
-    name: 'docker',
-    icon: docker,
   },
 ];

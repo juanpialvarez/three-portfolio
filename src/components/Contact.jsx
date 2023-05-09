@@ -3,8 +3,6 @@ import { motion } from 'framer-motion';
 
 import { fadeIn, textVariant } from '../utils/motion';
 import { styles } from '../styles';
-// import { Canvas } from '@react-three/fiber';
-// import Icons from './canvas/Icons';
 
 const Contact = (props) => {
   const { handleBack } = props;
@@ -35,7 +33,7 @@ const Contact = (props) => {
            overflow-scroll m-auto text-center'
         >
           <motion.div variants={textVariant()}>
-            <h2 className={styles.sectionHeadText}>Contact.</h2>
+            <h2 className={`${styles.sectionHeadText} mt-10`}>Contact.</h2>
           </motion.div>
           <motion.p
             variants={fadeIn('', '', 0.1, 1)}
@@ -46,7 +44,7 @@ const Contact = (props) => {
           </motion.p>
           <motion.p
             variants={fadeIn('', '', 0.1, 1)}
-            className={`${styles.sectionSubText} text-[#ff36cb] mt-10`}
+            className={`${styles.sectionSubText} text-[#ff36cb] mt-10 mb-10`}
           >
             Phone 1:{' '}
             <a href='tel:+524423175868' className='text-white'>
@@ -65,37 +63,73 @@ const Contact = (props) => {
           </motion.p>
 
           <a
-            className='bg-blue-500 hover:bg-blue-700 text-white 
-            font-bold py-2 px-4 rounded-full mb-10 mt-5'
+            className={`${styles.sectionSubText} bg-transparent hover:bg-blue-500 text-white 
+            hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent 
+            rounded`}
             href='mailto:juanpabloalvarezv@gmail.com'
           >
             Email Me
           </a>
-          {/**
-           * Code to inset icon into div
-           */}
-          {/* <div className='w-full h-[250px]'>
-            <Canvas
-              frameloop='always'
-              shadows
-              camera={{
-                position: [0, 0, -1],
-                fov: 10,
-              }}
-              gl={{ preseveDrawingBuffer: true }}
+
+          <form class='w-full my-20'>
+            <div class='flex flex-wrap -mx-3 mb-6'>
+              <div class='w-full px-3'>
+                <label
+                  class={`block uppercase tracking-wide text-white text-xs font-bold mb-2`}
+                  for='grid-password'
+                >
+                  Name
+                </label>
+                <input
+                  class='appearance-none block w-full bg-gray-200 text-gray-700 border 
+                  border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none
+                   focus:bg-white focus:border-gray-500'
+                  id='grid-password'
+                  type='password'
+                  placeholder='Jane Doe'
+                />
+              </div>
+            </div>
+            <div class='flex flex-wrap -mx-3 mb-6'>
+              <div class='w-full px-3'>
+                <label
+                  class='block uppercase tracking-wide text-white text-xs font-bold mb-2'
+                  for='grid-password'
+                >
+                  Company
+                </label>
+                <input
+                  class='appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500'
+                  id='grid-password'
+                  type='password'
+                  placeholder='Company'
+                />
+              </div>
+            </div>
+            <div class='flex flex-wrap -mx-3 mb-6'>
+              <div class='w-full px-3'>
+                <label
+                  class='block uppercase tracking-wide text-white text-xs font-bold mb-2'
+                  for='grid-password'
+                >
+                  Email
+                </label>
+                <input
+                  class='appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500'
+                  id='grid-password'
+                  type='password'
+                  placeholder='janedoe@gmail.com'
+                />
+              </div>
+            </div>
+            <button
+              className={`${styles.sectionSubText} bg-transparent hover:bg-blue-500 text-white 
+            hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent 
+            rounded  mt-5`}
             >
-              <Icons
-                icon='WA'
-                scale={0.5}
-                xPos={-0.05}
-                yPos={0.05}
-                zPos={0}
-                xRotate={-0.1}
-                yRotate={0.4}
-                zRotate={0}
-              />
-            </Canvas>
-          </div> */}
+              Let me Contact You
+            </button>
+          </form>
         </div>
       </motion.div>
     </div>

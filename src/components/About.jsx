@@ -21,7 +21,8 @@ const About = (props) => {
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.5 }}
         exit={{ opacity: 0 }}
-        className='blue-gradient w-full h-full p-[1px] rounded-[20px]  overflow-scroll'
+        className='blue-gradient w-full h-full p-[1px] rounded-[20px]  
+        overflow-scroll'
       >
         <div
           options={{
@@ -30,12 +31,12 @@ const About = (props) => {
             speed: 450,
           }}
           className='bg-tertiary rounded-[20px] py-5 px-12 min-h-[280px]
-          flex justify-evenly items-center flex-col'
+          flex justify-evenly items-center flex-col my-10'
         >
           <img
             src={picture}
             alt='Logo'
-            className='h-[180px] rounded-[20px] mb-3'
+            className='h-[180px] rounded-full mb-10'
           />
           <motion.div variants={textVariant()}>
             <p className={`${styles.sectionSubText} text-white`}>
@@ -46,12 +47,13 @@ const About = (props) => {
           <motion.p
             variants={fadeIn('', '', 0.1, 1)}
             className='mt-4 text-secondary text-[17px]
-      max-w-3xl leading-[30px] text-white'
+      max-w-3xl leading-[30px] text-white mb-5'
           >
-            I'm a Junior Software developer with experience with Typescript,
-            JavaScript, Python and frameworks such as React, Angular, Node.js,
-            Express.js, and Django amongst others. I am a quick learner and
-            eager to grow as a developer.
+            My name is Juan Pablo Alvarez. I'm a Software developer with
+            experience in Typescript, JavaScript, Python and frameworks such as
+            React, React Native, Angular, Node.js, Express.js, and Django
+            amongst others. I am a quick learner and eager to grow as a
+            developer.
           </motion.p>
         </div>
       </motion.div>

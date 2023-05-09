@@ -3,10 +3,9 @@ import Text from './Text';
 
 function ButtonsThreeD(props) {
   const mesh = useRef();
-  const { textParams, handleView, view } = props;
+  const { textParams, handleView, view, viewRef } = props;
   const [hovered, setHover] = useState(false);
   const [active, setActive] = useState(false);
-
   return (
     <group>
       <mesh
@@ -15,11 +14,19 @@ function ButtonsThreeD(props) {
         ref={mesh}
         scale={1}
         onClick={(event) => {
-          handleView(event, view);
-          setActive(!active);
+          if (!viewRef || viewRef.childElementCount < 1) {
+            handleView(event, view);
+            setActive(!active);
+          }
         }}
-        onPointerOver={(event) => setHover(true)}
-        onPointerOut={(event) => setHover(false)}
+        onPointerOver={(event) => {
+          if (!viewRef || viewRef.childElementCount < 1) {
+            setHover(true);
+          }
+        }}
+        onPointerOut={(event) => {
+          setHover(false);
+        }}
         rotation={textParams.rotation}
       >
         <boxGeometry args={[0.7, 0.25, 0.3]} />

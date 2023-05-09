@@ -44,6 +44,7 @@ const DeskCanvas = () => {
   const [isSmall, setIsSmall] = useState(false);
   const [view, setView] = useState('');
   const [project, setProject] = useState(null);
+  const [viewRef, setViewRef] = useState(null);
 
   const useOutsideAlerter = (ref) => {
     useEffect(() => {
@@ -57,6 +58,14 @@ const DeskCanvas = () => {
         document.removeEventListener('mousedown', handleClickOutside);
       };
     }, [ref]);
+  };
+
+  const useRefView = (ref, updater) => {
+    useEffect(() => {
+      if (ref.current) {
+        setViewRef(ref.current);
+      }
+    }, [updater]);
   };
 
   const useOutsideProjectCloser = (ref) => {
@@ -109,7 +118,6 @@ const DeskCanvas = () => {
     }
   };
 
-  console.log(!view);
   const handleBack = () => {
     setView('');
   };
@@ -155,7 +163,7 @@ const DeskCanvas = () => {
           gl={{ preseveDrawingBuffer: true }}
         >
           <Suspense fallback={<CanvasLoader />}>
-            {!project && (
+            {!project && !view && (
               <OrbitControls
                 enableZoom={false}
                 enablePan={false}
@@ -191,6 +199,7 @@ const DeskCanvas = () => {
                 }}
                 handleView={handleView}
                 view='Contact'
+                viewRef={viewRef}
               />
             </Float>
             <Float speed={1} rotationIntensity={0.1} floatIntensity={0.5}>
@@ -203,6 +212,7 @@ const DeskCanvas = () => {
                 }}
                 handleView={handleView}
                 view='About'
+                viewRef={viewRef}
               />
             </Float>
             <Float speed={1} rotationIntensity={0.1} floatIntensity={0.5}>
@@ -215,12 +225,14 @@ const DeskCanvas = () => {
                 }}
                 handleView={handleView}
                 view='Projects'
+                viewRef={viewRef}
               />
             </Float>
 
             {!project && (
               <View
                 view={view}
+                useRefView={useRefView}
                 useOutsideAlerter={useOutsideAlerter}
                 handleBack={handleBack}
                 handleViewProject={handleViewProject}
