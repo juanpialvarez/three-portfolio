@@ -11,6 +11,7 @@ import CanvasLoader from '../Loader';
 import ButtonsThreeD from './ButtonsThreeD';
 import View from './View';
 import ProjectView from '../ProjectView';
+import Header from '../Header';
 
 const Desk = () => {
   const group = useRef(null);
@@ -108,6 +109,7 @@ const DeskCanvas = () => {
     }
   };
 
+  console.log(!view);
   const handleBack = () => {
     setView('');
   };
@@ -122,6 +124,11 @@ const DeskCanvas = () => {
 
   return (
     <>
+      {!project && !view && (
+        <div className='w-screen absolute z-50'>
+          <Header />
+        </div>
+      )}
       {project && (
         <>
           <div className='h-screen z-20 absolute left-1/2 -translate-x-1/2'>
@@ -133,6 +140,9 @@ const DeskCanvas = () => {
           </div>
           <div className='h-screen w-screen bg-gray-500 opacity-50 z-10 absolute' />
         </>
+      )}
+      {view && (
+        <div className='h-screen w-screen bg-gray-500 opacity-50 z-10 absolute' />
       )}
       <div className='h-screen z-0 '>
         <Canvas
@@ -179,7 +189,7 @@ const DeskCanvas = () => {
                   rotation: [0, 0.4, 0],
                   text: 'Contact',
                 }}
-                handleView={!project && handleView}
+                handleView={handleView}
                 view='Contact'
               />
             </Float>
@@ -191,7 +201,7 @@ const DeskCanvas = () => {
                   rotation: [0, 0, 0],
                   text: 'About',
                 }}
-                handleView={!project && handleView}
+                handleView={handleView}
                 view='About'
               />
             </Float>
@@ -203,7 +213,7 @@ const DeskCanvas = () => {
                   rotation: [0, -0.3, 0],
                   text: 'Projects',
                 }}
-                handleView={!project && handleView}
+                handleView={handleView}
                 view='Projects'
               />
             </Float>

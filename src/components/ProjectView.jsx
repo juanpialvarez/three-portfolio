@@ -44,7 +44,11 @@ const BallCanvas = ({ icon }) => {
   );
 };
 
-const ProjectView = ({ project, useOutsideProjectCloser }) => {
+const ProjectView = ({
+  project,
+  handleCloseProject,
+  useOutsideProjectCloser,
+}) => {
   const inputRef = useRef(null);
   useOutsideProjectCloser(inputRef);
   return (
@@ -54,17 +58,26 @@ const ProjectView = ({ project, useOutsideProjectCloser }) => {
       transition={{ duration: 0.5 }}
       exit={{ opacity: 0 }}
       ref={inputRef}
-      className='blue-gradient h-full max-sm:w-full w-[500px] p-[1px] shadow-card overflow-scroll
+      className='blue-gradient h-full max-sm:w-screen w-[500px] p-[1px] shadow-card overflow-scroll
        m-auto px-10'
     >
+      <div className='w-full my-5 '>
+        <button
+          className='bg-blue-500 hover:bg-blue-700 text-white 
+            font-bold py-2 px-4 rounded-md  text-center '
+          onClick={(event) => handleCloseProject()}
+        >
+          Close
+        </button>
+      </div>
       <div className='w-full'>
         <h1 className={styles.sectionHeadText}>{project.name}</h1>
         <p className={styles.sectionSubText}>{project.description}</p>
       </div>
       <h3 className={`${styles.sectionHeadText}`}>Techs</h3>
-      <div className='w-full flex justify-around'>
+      <div className='flex flex-row flex-wrap justify-center '>
         {project.techs.map((tech, index) => (
-          <div className='w-20 h-40' key={index}>
+          <div className=' w-30 h-60' key={index}>
             <BallCanvas icon={tech} />
           </div>
         ))}
