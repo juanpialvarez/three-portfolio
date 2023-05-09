@@ -26,22 +26,6 @@ const ProjectCard = ({ project, handleViewProject }) => {
         <p className='text-white text-[15px]  text-center'>
           {project.description}
         </p>
-        <div className='w-full flex justify-between'>
-          <a
-            className='bg-blue-500 hover:bg-blue-700 text-white 
-            font-bold py-2 px-4 rounded-full'
-            href={project.github}
-          >
-            Git Hub
-          </a>
-          <a
-            className='bg-blue-500 hover:bg-blue-700 text-white 
-            font-bold py-2 px-4 rounded-full'
-            href={project.website}
-          >
-            Project
-          </a>
-        </div>
       </div>
     </motion.div>
   );

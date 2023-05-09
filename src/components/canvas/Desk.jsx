@@ -171,7 +171,7 @@ const DeskCanvas = () => {
             )}
 
             <Desk />
-            <Float speed={1} rotationIntensity={0.2} floatIntensity={0.5}>
+            <Float speed={1} rotationIntensity={0.1} floatIntensity={0.5}>
               <ButtonsThreeD
                 position={[-1, 0.4, -4.8]}
                 textParams={{

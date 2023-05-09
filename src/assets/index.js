@@ -13,7 +13,14 @@ import typescript from './tech/typescript.png';
 import threejs from './tech/threejs.svg';
 import angular from './tech/angular.png';
 
+import linkedIn from './icons/linkedinIcon.svg';
+import github from './icons/gitthubIcon.svg';
+import twitter from './icons/twitterIcon.svg';
+
 export {
+  linkedIn,
+  github,
+  twitter,
   angular,
   css,
   docker,

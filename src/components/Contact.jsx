@@ -14,6 +14,7 @@ const Contact = (props) => {
         initial={{ opacity: 0, scale: 0.5 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.5 }}
+        exit={{ opacity: 0 }}
         className='blue-gradient w-full h-full p-[1px] rounded-[20px] flex 
         justify-center items-center'
       >
