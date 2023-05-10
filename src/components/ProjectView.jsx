@@ -62,16 +62,16 @@ const ProjectView = ({
        m-auto px-10'
     >
       <section className='border-b-2'>
-        <div className='w-full my-5'>
+        <div className='w-full my-10'>
           <button
             className={`${styles.sectionSubText} bg-transparent hover:bg-blue-500 text-white 
             hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent 
-            rounded relative left-full -translate-x-full`}
+            rounded relative left-full -translate-x-full  mb-8 mt-10`}
             onClick={(event) => handleCloseProject()}
           >
             Close
           </button>
-          <h1 className={styles.sectionHeadText}>{project.name}</h1>
+          <h1 className={`${styles.sectionHeadText}`}>{project.name}</h1>
         </div>
       </section>
       <section className='border-b-2'>
@@ -88,11 +88,11 @@ const ProjectView = ({
           </div>
         ))}
       </div>
-      <div className='flex w-full justify-evenly items-center my-14 '>
+      <div className='flex w-full flex-col justify-around items-center my-14 '>
         <h3 className={`${styles.sectionHeadText}`}>Find it on</h3>
         <a
           href={project.github}
-          className='bg-blue-500 hover:bg-blue-700 rounded-full'
+          className='bg-blue-500 hover:bg-blue-700 rounded-full my-10'
         >
           <img src={github} alt='github' className='h-20' />
         </a>
@@ -100,7 +100,7 @@ const ProjectView = ({
           href={project.website}
           className={`${styles.sectionSubText} bg-transparent hover:bg-blue-500 text-white 
           hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent 
-          rounded`}
+          rounded mb-20`}
         >
           Project
         </a>

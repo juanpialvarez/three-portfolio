@@ -9,8 +9,9 @@ const Contact = (props) => {
   return (
     <div className='max-sm:w-screen max-sm:h-screen h-[500px] w-[500px]  z-20'>
       <button
-        className='bg-blue-500 hover:bg-blue-700 text-white 
-            font-bold py-2 px-4 rounded-full absolute z-1 top-2 left-2  max-sm:opacity-60'
+        className={`${styles.sectionSubText} bg-transparent hover:bg-blue-500 text-white 
+        hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent 
+        rounded absolute top-5 left-5`}
         onClick={(event) => handleBack()}
       >
         Back
