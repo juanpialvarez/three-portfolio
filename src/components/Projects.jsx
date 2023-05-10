@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { projects } from '../constants/constants';
+import { styles } from '../styles';
 
 const ProjectCard = ({ project, handleViewProject }) => {
   return (
@@ -39,8 +40,9 @@ const Projects = ({ handleBack, handleViewProject }) => {
       h-screen mt-28 overflow-scroll z-20'
       >
         <button
-          className='bg-blue-500 hover:bg-blue-700 text-white 
-            font-bold py-2 px-4 rounded-full absolute z-1 top-2 left-2'
+          className={`${styles.sectionSubText} bg-transparent hover:bg-blue-500 text-white 
+          hover:text-white py-2 px-4 font-bold  border-2 border-blue-500 hover:border-transparent 
+          rounded absolute top-5 left-5 z-1`}
           onClick={(event) => handleBack()}
         >
           Back

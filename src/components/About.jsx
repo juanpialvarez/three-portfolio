@@ -11,8 +11,8 @@ const About = (props) => {
     <div className='max-sm:w-full max-sm:h-screen h-[500px] w-[400px] z-20'>
       <button
         className={`${styles.sectionSubText} bg-transparent hover:bg-blue-500 text-white 
-        hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent 
-        rounded absolute top-5 left-5`}
+        hover:text-white py-2 px-4  border-blue-500 hover:border-transparent 
+        rounded absolute top-5 left-5 font-bold  border-2`}
         onClick={(event) => handleBack()}
       >
         Back
