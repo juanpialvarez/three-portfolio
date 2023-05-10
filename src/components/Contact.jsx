@@ -25,13 +25,15 @@ const Contact = (props) => {
       headers: {
         'Content-type': 'application/json',
       },
-    }).then((response) => {
-      if (response.ok) {
-        alert("I'll get back to you shortly");
-      } else {
-        alert('Something went wrong');
-      }
-    });
+    })
+      .then((response) => {
+        if (response.ok) {
+          alert("I'll get back to you shortly");
+        } else {
+          alert('Something went wrong');
+        }
+      })
+      .catch((err) => console.log(err));
   };
 
   return (
