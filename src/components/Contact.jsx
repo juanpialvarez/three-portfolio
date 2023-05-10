@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 
 import { fadeIn, textVariant } from '../utils/motion';
@@ -6,16 +6,36 @@ import { styles } from '../styles';
 
 const Contact = (props) => {
   const { handleBack } = props;
+  const [name, setName] = useState('');
+  const [company, setCompany] = useState('');
+  const [email, setEmail] = useState('');
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+
+    const data = {
+      name,
+      company,
+      email,
+    };
+
+    fetch('https://sheltered-harbor-42224.herokuapp.com/contact', {
+      method: 'POST',
+      body: JSON.stringify(data),
+      headers: {
+        'Content-type': 'application/json',
+      },
+    }).then((response) => {
+      if (response.ok) {
+        alert("I'll get back to you shortly");
+      } else {
+        alert('Something went wrong');
+      }
+    });
+  };
+
   return (
     <div className='max-sm:w-screen max-sm:h-screen h-[500px] w-[500px]  z-20'>
-      <button
-        className={`${styles.sectionSubText} bg-transparent hover:bg-blue-500 text-white 
-        hover:text-white py-2 px-4 font-bold  border-2 border-blue-500 hover:border-transparent 
-        rounded absolute top-5 left-5`}
-        onClick={(event) => handleBack()}
-      >
-        Back
-      </button>
       <motion.div
         initial={{ opacity: 0, scale: 0.5 }}
         animate={{ opacity: 1, scale: 1 }}
@@ -33,8 +53,18 @@ const Contact = (props) => {
           className='rounded-[20px] py-5 px-12 h-full w-full
            overflow-scroll m-auto text-center'
         >
+          <div className='w-full h-1/6 '>
+            <button
+              className={`${styles.sectionSubText} bg-transparent hover:bg-blue-500 text-white 
+        hover:text-white py-2 px-4 font-bold  border-2 border-blue-500 hover:border-transparent 
+        rounded relative top-0 left-1/2 -translate-x-1/2`}
+              onClick={(event) => handleBack()}
+            >
+              Back
+            </button>
+          </div>
           <motion.div variants={textVariant()}>
-            <h2 className={`${styles.sectionHeadText} mt-10`}>Contact.</h2>
+            <h2 className={`${styles.sectionHeadText}`}>Contact.</h2>
           </motion.div>
           <motion.p
             variants={fadeIn('', '', 0.1, 1)}
@@ -72,58 +102,67 @@ const Contact = (props) => {
             Email Me
           </a>
 
-          <form class='w-full my-20'>
-            <div class='flex flex-wrap -mx-3 mb-6'>
-              <div class='w-full px-3'>
+          <form
+            className='w-full my-20'
+            onSubmit={(event) => handleSubmit(event)}
+          >
+            <div className='flex flex-wrap -mx-3 mb-6'>
+              <div className='w-full px-3'>
                 <label
-                  class={`block uppercase tracking-wide text-white text-xs font-bold mb-2`}
-                  for='grid-password'
+                  className={`block uppercase tracking-wide text-white text-xs font-bold mb-2`}
+                  htmlFor='name'
                 >
                   Name
                 </label>
                 <input
-                  class='appearance-none block w-full bg-gray-200 text-gray-700 border 
+                  className='appearance-none block w-full bg-gray-200 text-gray-700 border 
                   border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none
                    focus:bg-white focus:border-gray-500'
-                  id='grid-password'
-                  type='password'
+                  id='name'
+                  type='text'
                   placeholder='Jane Doe'
+                  onChange={(e) => setName(e.target.value)}
                 />
               </div>
             </div>
-            <div class='flex flex-wrap -mx-3 mb-6'>
-              <div class='w-full px-3'>
+            <div className='flex flex-wrap -mx-3 mb-6'>
+              <div className='w-full px-3'>
                 <label
-                  class='block uppercase tracking-wide text-white text-xs font-bold mb-2'
-                  for='grid-password'
+                  className='block uppercase tracking-wide text-white text-xs font-bold mb-2'
+                  htmlFor='company'
                 >
                   Company
                 </label>
                 <input
-                  class='appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500'
-                  id='grid-password'
-                  type='password'
+                  className='appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 
+                  rounded py-3 px-4 mb-3 leading-tight focus:outline-none
+                   focus:bg-white focus:border-gray-500'
+                  id='company'
+                  type='text'
                   placeholder='Company'
+                  onChange={(e) => setCompany(e.target.value)}
                 />
               </div>
             </div>
-            <div class='flex flex-wrap -mx-3 mb-6'>
-              <div class='w-full px-3'>
+            <div className='flex flex-wrap -mx-3 mb-6'>
+              <div className='w-full px-3'>
                 <label
-                  class='block uppercase tracking-wide text-white text-xs font-bold mb-2'
-                  for='grid-password'
+                  className='block uppercase tracking-wide text-white text-xs font-bold mb-2'
+                  htmlFor='email'
                 >
                   Email
                 </label>
                 <input
-                  class='appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500'
-                  id='grid-password'
-                  type='password'
+                  className='appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500'
+                  id='email'
+                  type='email'
                   placeholder='janedoe@gmail.com'
+                  onChange={(e) => setEmail(e.target.value)}
                 />
               </div>
             </div>
             <button
+              type='submit'
               className={`${styles.sectionSubText} bg-transparent hover:bg-blue-500 text-white 
             hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent 
             rounded  mt-5`}
