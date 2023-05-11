@@ -16,6 +16,10 @@ code {
 @tailwind components;
 @tailwind utilities;
 
+.scrollable::-webkit-scrollbar {
+  display: none;
+}
+
 .hash-span {
   margin-top: -100px;
   padding-bottom: 100px;

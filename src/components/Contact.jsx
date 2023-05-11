@@ -47,7 +47,7 @@ const Contact = (props) => {
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.5 }}
         exit={{ opacity: 0 }}
-        className='blue-gradient w-full h-full p-[1px] rounded-[20px] flex 
+        className='blue-gradient w-full h-full  rounded-[20px] flex 
         justify-center items-center'
       >
         <div
@@ -57,7 +57,7 @@ const Contact = (props) => {
             speed: 450,
           }}
           className='rounded-[20px] py-5 px-12 h-full w-full
-           overflow-scroll m-auto text-center'
+           overflow-scroll m-auto text-center scrollable'
         >
           <div className='w-full h-1/6 '>
             <button

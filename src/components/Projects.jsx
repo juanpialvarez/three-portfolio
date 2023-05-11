@@ -37,7 +37,7 @@ const Projects = ({ handleBack, handleViewProject }) => {
     <>
       <div
         className='max-sm:w-full flex flex-wrap justify-center gap-10 w-[500px] 
-      h-screen mt-44 overflow-scroll z-20'
+      h-screen mt-44 overflow-scroll z-20 scrollable'
       >
         <button
           className={`${styles.sectionSubText} bg-transparent hover:bg-blue-500 text-white 

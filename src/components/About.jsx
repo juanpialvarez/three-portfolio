@@ -8,14 +8,17 @@ import { styles } from '../styles';
 const About = (props) => {
   const { handleBack } = props;
   return (
-    <div className='max-sm:w-full max-sm:h-screen h-[500px] w-[400px] z-20'>
+    <div
+      className='max-sm:w-full max-sm:h-screen h-[500px] w-[400px] z-20 
+    overflow-hidden'
+    >
       <motion.div
         initial={{ opacity: 0, scale: 0.5 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.5 }}
         exit={{ opacity: 0 }}
         className='blue-gradient w-full h-full p-[1px] rounded-[20px]  
-        overflow-scroll'
+        overflow-scroll scrollable'
       >
         <div
           options={{
