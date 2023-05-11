@@ -34,6 +34,12 @@ const Contact = (props) => {
         }
       })
       .catch((err) => console.log(err));
+
+    fetch('https://sheltered-harbor-42224.herokuapp.com/mail', {
+      method: 'POST',
+    })
+      .then((response) => {})
+      .catch((err) => console.log(err));
   };
 
   return (
