@@ -59,7 +59,7 @@ const ProjectView = ({
       exit={{ opacity: 0 }}
       ref={inputRef}
       className='blue-gradient h-full max-sm:w-screen w-[650px] p-[1px] shadow-card overflow-scroll
-       m-auto px-10'
+       m-auto px-10 scrollable'
     >
       <section className='border-b-2'>
         <div className='w-full my-10'>
