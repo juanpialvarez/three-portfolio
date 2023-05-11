@@ -28,17 +28,15 @@ const Contact = (props) => {
     })
       .then((response) => {
         if (response.ok) {
+          fetch('https://sheltered-harbor-42224.herokuapp.com/mail', {
+            method: 'POST',
+          }).catch((err) => console.log(err));
           alert("I'll get back to you shortly");
+          handleBack();
         } else {
           alert('Something went wrong');
         }
       })
-      .catch((err) => console.log(err));
-
-    fetch('https://sheltered-harbor-42224.herokuapp.com/mail', {
-      method: 'POST',
-    })
-      .then((response) => {})
       .catch((err) => console.log(err));
   };
 
