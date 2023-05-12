@@ -1,21 +1,32 @@
 import React from 'react';
 import { styles } from '../styles';
+import { linkedIn, github } from '../assets/index.js';
 
 const Header = () => {
   return (
-    <div className='hidden w-screen h-20 max-sm:flex justify-between'>
-      <div className='w-1/4'>
-        <div className='arrow2 arrow2-first' />
-        <div className='arrow2 arrow2-second' />
-      </div>
-      <h2
-        className={`${styles.sectionSubText} text-[#ff36cb] text-lg blink-text relative top-10`}
+    <div className='my-2 px-4 flex justify-between items-center'>
+      <p
+        className={`${styles.sectionSubText} text-white text-[18] cursor-pointer flex`}
+        onClick={() => window.location.reload()}
       >
-        Swipe
-      </h2>
-      <div className='w-1/4'>
-        <div className='arrow arrow-first' />
-        <div className='arrow arrow-second' />
+        Juan Pablo &nbsp;
+        <span>| Developer</span>
+      </p>
+      <div className='a '>
+        <a href='https://www.linkedin.com/in/juanpabloalvarezv/'>
+          <img
+            src={linkedIn}
+            alt='linkedIn'
+            className='max-sm:h-8 h-10 inline-block hover:opacity-50'
+          />
+        </a>
+        <a href='https://www.linkedin.com/in/juanpabloalvarezv/'>
+          <img
+            src={github}
+            alt='linkedIn'
+            className='max-sm:h-7 h-9 inline-block mx-2 hover:opacity-50'
+          />
+        </a>
       </div>
     </div>
   );

@@ -11,7 +11,7 @@ import CanvasLoader from '../Loader';
 import ButtonsThreeD from './ButtonsThreeD';
 import View from './View';
 import ProjectView from '../ProjectView';
-import Header from '../Header';
+import Arrows from '../Arrows';
 
 const Desk = () => {
   const group = useRef(null);
@@ -134,7 +134,7 @@ const DeskCanvas = () => {
     <>
       {!project && !view && (
         <div className='w-screen absolute z-50'>
-          <Header />
+          <Arrows />
         </div>
       )}
       {project && (
