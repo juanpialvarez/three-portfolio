@@ -47,7 +47,7 @@ const Contact = (props) => {
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.5 }}
         exit={{ opacity: 0 }}
-        className='blue-gradient w-full h-full  rounded-[20px] flex 
+        className='blue-gradient w-full h-full  sm:rounded-[20px] flex 
         justify-center items-center'
       >
         <div
@@ -57,7 +57,7 @@ const Contact = (props) => {
             speed: 450,
           }}
           className='rounded-[20px] py-5 px-12 h-full w-full
-           overflow-scroll m-auto text-center scrollable'
+           overflow-scroll m-auto text-center scrollable '
         >
           <div className='w-full h-1/6 '>
             <button
@@ -81,7 +81,7 @@ const Contact = (props) => {
           </motion.p>
           <motion.p
             variants={fadeIn('', '', 0.1, 1)}
-            className={`${styles.sectionSubText} text-[#ff36cb] mt-10 mb-10`}
+            className={`${styles.sectionSubText} text-[#ff36cb] mt-10 mb-5`}
           >
             Phone 1:{' '}
             <a href='tel:+524423175868' className='text-white'>
@@ -109,7 +109,7 @@ const Contact = (props) => {
           </a>
 
           <form
-            className='w-full my-20'
+            className='w-full mt-10'
             onSubmit={(event) => handleSubmit(event)}
           >
             <div className='flex flex-wrap -mx-3 mb-6'>
@@ -122,7 +122,7 @@ const Contact = (props) => {
                 </label>
                 <input
                   className='appearance-none block w-full bg-gray-200 text-gray-700 border 
-                  border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none
+                  border-gray-200 rounded py-3 px-4  leading-tight focus:outline-none
                    focus:bg-white focus:border-gray-500'
                   id='name'
                   type='text'
@@ -141,7 +141,7 @@ const Contact = (props) => {
                 </label>
                 <input
                   className='appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 
-                  rounded py-3 px-4 mb-3 leading-tight focus:outline-none
+                  rounded py-3 px-4 leading-tight focus:outline-none
                    focus:bg-white focus:border-gray-500'
                   id='company'
                   type='text'
@@ -150,7 +150,7 @@ const Contact = (props) => {
                 />
               </div>
             </div>
-            <div className='flex flex-wrap -mx-3 mb-6'>
+            <div className='flex flex-wrap -mx-3 mb-6 '>
               <div className='w-full px-3'>
                 <label
                   className='block uppercase tracking-wide text-white text-xs font-bold mb-2'
@@ -159,7 +159,7 @@ const Contact = (props) => {
                   Email
                 </label>
                 <input
-                  className='appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500'
+                  className='appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4  leading-tight focus:outline-none focus:bg-white focus:border-gray-500'
                   id='email'
                   type='email'
                   placeholder='janedoe@gmail.com'
@@ -171,7 +171,7 @@ const Contact = (props) => {
               type='submit'
               className={`${styles.sectionSubText} bg-transparent hover:bg-blue-500 text-white 
             hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent 
-            rounded  mt-5`}
+            rounded  mt-2  mb-20`}
             >
               Let me Contact You
             </button>

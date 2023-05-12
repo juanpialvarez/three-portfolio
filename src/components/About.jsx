@@ -17,7 +17,7 @@ const About = (props) => {
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.5 }}
         exit={{ opacity: 0 }}
-        className='blue-gradient w-full h-full p-[1px] rounded-[20px]  
+        className='blue-gradient w-full h-full p-[1px] sm:rounded-[20px]  
         overflow-scroll scrollable'
       >
         <div
