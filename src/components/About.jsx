@@ -26,7 +26,7 @@ const About = (props) => {
             scale: 1,
             speed: 450,
           }}
-          className='bg-tertiary rounded-[20px] py-5 px-12 min-h-[280px]
+          className='bg-tertiary sm:rounded-[20px] py-5 px-12 min-h-[280px]
           flex justify-evenly items-center flex-col mb-14 '
         >
           <div className='w-full h-1/6 mb-10'>
