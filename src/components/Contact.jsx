@@ -56,7 +56,7 @@ const Contact = (props) => {
             scale: 1,
             speed: 450,
           }}
-          className='rounded-[20px] py-5 px-12 h-full w-full
+          className='sm:rounded-[20px] py-5 px-12 h-full w-full
            overflow-scroll m-auto text-center scrollable '
         >
           <div className='w-full h-1/6 '>

@@ -20,7 +20,7 @@ const Header = () => {
             className='max-sm:h-8 h-10 inline-block hover:opacity-50'
           />
         </a>
-        <a href='https://www.linkedin.com/in/juanpabloalvarezv/'>
+        <a href='https://github.com/juanpialvarez/'>
           <img
             src={github}
             alt='linkedIn'
